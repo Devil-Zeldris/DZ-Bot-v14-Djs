@@ -31,10 +31,9 @@ class SendCommand extends Command {
         const files = options.getAttachment('files');
         const user = options.getUser('user')
         if (user) {
-            const { username } = user;
             if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageWebhooks)) return interaction.reply({ content: `Can't manage webhooks`, ephemeral: true })
             const hook = (await channel.fetchWebhooks()).find(({ owner }) => owner === client.user) || (await channel.createWebhook({ name: `Piety Curse`, avatar: `https://media.discordapp.net/attachments/761694168758091797/1065642907308134470/Piety_Purple-1024.png`, reason: `Someone has been cursed` }).catch(console.error))
-            await hook.send({ username, avatarURL: user.avatarURL({ format: 'png', size: 4096, dynamic: true }), content, files })
+            await hook.send({ username: user.username, avatarURL: user.avatarURL({ format: 'png', size: 4096, dynamic: true }), content, files })
             return interaction.reply({ content: `Completed`, ephemeral: true })
         }
         await interaction.deferReply({ ephemeral: true });
@@ -111,15 +110,9 @@ class SendCommand extends Command {
     }
     async #delete(interaction, targetMessage) {
         if (!targetMessage) return interaction.reply({ content: `No message for delete`, ephemeral: true })
-        //if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageMessages, true)) return interaction.reply({ content: `You don't have permission to delete messages`, ephemeral: true })
         await targetMessage.delete().catch(async () => interaction.reply({ content: `Message deleted already`, ephemeral: true }))
         return interaction.reply({ content: `Message deleted`, ephemeral: true })
     }
-    // async #addReaction(interaction, targetMessage) {
-    //     if (!targetMessage) return interaction.reply({ content: `No message for reaction` })
-    //     await message.react().catch(async () => await interaction.reply({ content: `Message deleted already`, ephemeral: true }))
-    //     return interaction.reply({ content: 'SOON' })
-    // }
     async #edit(interaction, targetMessage) {
         if (!targetMessage) return interaction.reply({ content: `No message for editing`, ephemeral: true })
         const edit = new ActionRowBuilder()

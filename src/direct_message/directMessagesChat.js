@@ -7,15 +7,17 @@ class DirectMessagesChat extends Direct {
     async typing(typing) {
         const { client, user } = typing;
         const DMChannel = await client.channels.fetch(this.directMessagesChatId)
+        if (typing.member.guild.id !== DMChannel.guild.id) return;
         const activeThread = await DMChannel.threads.fetchActive()
         const archivedThread = await DMChannel.threads.fetchArchived()
         const DMThread = activeThread.threads.find(thread => thread.name === user.id) || archivedThread.threads.find(thread => thread.name === user.id);
         return DMThread?.sendTyping()
     }
     async execute(message) {
-        const { author, client, content, attachments, stickers } = message;
+        const { author, client, attachments, stickers } = message;
         if (author.bot) return
         const privateChannels = await client.channels.fetch(this.directMessagesChatId)
+        if (message.member.guild.id !== privateChannels.guild.id) return;
         const activeThreads = await privateChannels.threads.fetchActive()
         const archivedThreads = await privateChannels.threads.fetchArchived()
         const hook = (await privateChannels.fetchWebhooks()).find(({ owner }) => owner === client.user) || (await privateChannels.createWebhook({
@@ -34,7 +36,7 @@ class DirectMessagesChat extends Direct {
             username,
             avatarURL: author.avatarURL({ format: 'png', size: 4096, dynamic: true }),
             threadId,
-            content,
+            content: message.content.length === 0 ? undefined : message.content,
             files: [...attachments.values()],
             stickers
         })

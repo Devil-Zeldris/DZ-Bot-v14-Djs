@@ -1,12 +1,14 @@
 const Event = require("../classes/event");
-const { Collection } = require('discord.js')
-const { commandments, guildId } = require('../config.json')
+const { Collection, EmbedBuilder } = require('discord.js')
+const { commandments, guildId, inviteLogId } = require('../config.json')
 class GuildMemberUpdateEvent extends Event {
     constructor() {
         super('guildMemberUpdate', false)
         this.commandments = new Collection(commandments.map(c => [c.id, { name: c.name, subrole: c.subrole }]))
     }
     async execute(oldMember, newMember) {
+        const inviteLog = await newMember.guild.channels.fetch(inviteLogId);
+        const logMessage = new EmbedBuilder()
         if (!newMember.pending) {
             await this.#giveTraceFromCommandment(newMember)
             await this.#addMemberToDb(newMember)
