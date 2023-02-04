@@ -1,15 +1,13 @@
 const Direct = require("../classes/direct");
 const { ThreadAutoArchiveDuration } = require('discord.js')
-const { guildId } = require('../config.json')
 
 class DirectMessagesChat extends Direct {
     constructor() {
         super(1);
     }
     async typing(typing) {
-        const { client, user } = typing;
+        const { client, user, member } = typing;
         const DMChannel = await client.channels.fetch(this.directMessagesChatId)
-        if (typing.member.guild.id !== guildId) return;
         const activeThread = await DMChannel.threads.fetchActive()
         const archivedThread = await DMChannel.threads.fetchArchived()
         const DMThread = activeThread.threads.find(thread => thread.name === user.id) || archivedThread.threads.find(thread => thread.name === user.id);
@@ -18,7 +16,6 @@ class DirectMessagesChat extends Direct {
     async execute(message) {
         const { author, client, attachments, stickers } = message;
         if (author.bot) return;
-        if (message.member.guild.id !== guildId) return;
         const privateChannels = await client.channels.fetch(this.directMessagesChatId)
         const activeThreads = await privateChannels.threads.fetchActive()
         const archivedThreads = await privateChannels.threads.fetchArchived()
