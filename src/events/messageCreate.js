@@ -9,7 +9,7 @@ class MessageCreateEvent extends Event {
     async execute(message) {
         const { channel } = message;
         const chat = this.direct.get(channel.type)
-        if (chat) chat.execute(message);
+        if (chat) return chat.execute(message);
     }
 }
 
