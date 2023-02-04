@@ -32,6 +32,7 @@ class SendCommand extends Command {
         const user = options.getUser('user')
         if (user) {
             const { username } = user;
+            if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageWebhooks)) return interaction.reply({ content: `Can't manage webhooks` })
             const hook = (await channel.fetchWebhooks()).find(({ owner }) => owner === client.user) || (await channel.createWebhook({ name: `Piety Curse`, avatar: `https://media.discordapp.net/attachments/761694168758091797/1065642907308134470/Piety_Purple-1024.png`, reason: `Someone has been cursed` }).catch(console.error))
             await hook.send({ username, avatarURL: user.avatarURL({ format: 'png', size: 4096, dynamic: true }), content, files })
             return interaction.reply({ content: `Completed`, ephemeral: true })

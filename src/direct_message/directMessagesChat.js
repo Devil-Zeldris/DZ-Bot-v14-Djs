@@ -10,7 +10,7 @@ class DirectMessagesChat extends Direct {
         const activeThread = await DMChannel.threads.fetchActive()
         const archivedThread = await DMChannel.threads.fetchArchived()
         const DMThread = activeThread.threads.find(thread => thread.name === user.id) || archivedThread.threads.find(thread => thread.name === user.id);
-        return await DMThread.sendTyping()
+        return DMThread?.sendTyping()
     }
     async execute(message) {
         const { author, client, content, attachments, stickers } = message;
