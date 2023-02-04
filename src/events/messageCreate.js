@@ -8,7 +8,7 @@ class MessageCreateEvent extends Event {
     }
     async execute(message) {
         const { channel } = message;
-        const chat = this.direct[channel.type]
+        const chat = this.direct.get(channel.type)
         if (chat) chat.execute(message);
     }
 }

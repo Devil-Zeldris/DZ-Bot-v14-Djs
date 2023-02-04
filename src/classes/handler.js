@@ -31,6 +31,7 @@ class Handler {
                 command.cmd.forEach(cmd => this._commands.set(cmd, command));
                 console.log(`[HANDLER][COMMAND]`, `${command.cmd} is loaded`)
             })
+        console.log(this._commands)
         return this._commands;
     }
     get direct() {

@@ -24,7 +24,6 @@ class OwnerPanelCommand extends Command {
                 return this.#resetCommands(interaction);
             case 'createGuildCommands':
                 return this.#createGuildCommands(interaction);
-
         }
     }
     async #createPanel(interaction) {

@@ -7,7 +7,7 @@ class InteractionCreateEvent extends Event {
     }
     async execute(interaction) {
         const { commandName, customId } = interaction;
-        let command = this.commands[commandName || customId];
+        let command = this.commands.get(commandName || customId);
         if (command) return command.execute(interaction);
     }
 }
