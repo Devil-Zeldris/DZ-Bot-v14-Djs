@@ -133,5 +133,4 @@ dist
 node_modules
 
 #files
-src/config.json
 src/DevilRealmModule
