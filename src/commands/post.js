@@ -4,6 +4,7 @@ class MessageEmbedsCommand extends Command {
         super('embed')
     }
     async execute(interaction) {
+        if (interaction.member.id !== this.ownerID) return interaction.reply({ content: `You dont have permissions` })
         const { client, options } = interaction
         const collection = await client.database.collection('embeds').catch(() => undefined)
         await interaction.deferReply({ ephemeral: true })

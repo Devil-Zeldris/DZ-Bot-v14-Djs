@@ -7,6 +7,7 @@ class SendCommand extends Command {
         this.targetMessage;
     }
     async execute(interaction) {
+        if (interaction.member.id !== this.ownerID) return interaction.reply({ content: `You dont have permissions` })
         const { commandName, customId, values, targetMessage } = interaction
         const action = {
             'pin': this.#pin,
