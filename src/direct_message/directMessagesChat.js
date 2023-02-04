@@ -9,7 +9,7 @@ class DirectMessagesChat extends Direct {
     async typing(typing) {
         const { client, user } = typing;
         const DMChannel = await client.channels.fetch(this.directMessagesChatId)
-        if (typing.member.guild.id !== DMChannel.guild.id) return;
+        if (typing.member.guild.id !== guildId) return;
         const activeThread = await DMChannel.threads.fetchActive()
         const archivedThread = await DMChannel.threads.fetchArchived()
         const DMThread = activeThread.threads.find(thread => thread.name === user.id) || archivedThread.threads.find(thread => thread.name === user.id);
