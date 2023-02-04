@@ -1,5 +1,7 @@
 const Direct = require("../classes/direct");
 const { ThreadAutoArchiveDuration } = require('discord.js')
+const { guildId } = require('../config.json')
+
 class DirectMessagesChat extends Direct {
     constructor() {
         super(1);
@@ -15,9 +17,9 @@ class DirectMessagesChat extends Direct {
     }
     async execute(message) {
         const { author, client, attachments, stickers } = message;
-        if (author.bot) return
+        if (author.bot) return;
+        if (message.member.guild.id !== guildId) return;
         const privateChannels = await client.channels.fetch(this.directMessagesChatId)
-        if (message.member.guild.id !== privateChannels.guild.id) return;
         const activeThreads = await privateChannels.threads.fetchActive()
         const archivedThreads = await privateChannels.threads.fetchArchived()
         const hook = (await privateChannels.fetchWebhooks()).find(({ owner }) => owner === client.user) || (await privateChannels.createWebhook({

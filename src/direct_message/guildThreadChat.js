@@ -1,5 +1,4 @@
 const DirectMessages = require("../classes/direct");
-
 class GuildDirectMessagesChat extends DirectMessages {
     constructor() {
         super([11, 12])
