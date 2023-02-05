@@ -39,7 +39,7 @@ class OwnerPanelCommand extends Command {
     async #updateGuildCommands(interaction) {
         const { client, guild } = interaction
         let commandsDB = await client.database.collection('commands')
-            .find({ $or: [{ "guildIds": guild.id, "guildIds": "any" }] }, { projection: { _id: 0, scope: 0, guildIds: 0 } })
+            .find({ $or: [{ guildIds: guild.id, guildIds: "any" }] }, { projection: { _id: 0, guildIds: 0 } })
             .toArray()
         await guild.commands.set(commandsDB, interaction.guildId)
         return interaction.reply({ content: `Commands has been updated in Guild ${interaction.guild.name}: ID ${interaction.guild.id}`, ephemeral: true })
