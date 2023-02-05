@@ -27,8 +27,8 @@ class MessageEmbedsCommand extends Command {
     async #update({ interaction, collection }) {
         const messageDB = await collection.findOne({ name: `${interaction.options.getString('name')}` }, { projection: { _id: 0 } })
         if (!messageDB) return interaction.reply({ content: `No embed found`, ephemeral: true })
-        const message = await interaction.channel.messages.fetch(messageId)
         const messageId = options.getString('message_id');
+        const message = await interaction.channel.messages.fetch(messageId)
         const { options } = interaction;
         const { content, embeds, components } = messageDB
         return message.edit({ content, embeds, components })
