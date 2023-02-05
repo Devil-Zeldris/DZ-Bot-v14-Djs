@@ -9,11 +9,11 @@ class ReadyEvent extends Event {
         console.log(`[EVENT]`, `${this.name} as ${user.tag}`)
         const guild = await guilds.fetch('296607599149973504')
         await guild.invites.fetch()
-        // await client.application.commands.set([{
-        //     name: 'panel',
-        //     type: 1,
-        //     description: '[OWNER] Panel for settings'
-        // }])
+        await client.application.commands.set([{
+            name: 'panel',
+            type: 1,
+            description: '[OWNER] Panel for settings'
+        }])
     }
 }
 module.exports = ReadyEvent;
