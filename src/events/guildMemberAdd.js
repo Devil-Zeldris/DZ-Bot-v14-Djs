@@ -1,9 +1,11 @@
+const { PermissionsBitField } = require('discord.js');
 const Event = require('../classes/event')
 class GuildMemberAddEvent extends Event {
     constructor() {
         super('guildMemberAdd', false)
     }
     async execute(member) {
+        if (member.guild.members.me.has(PermissionsBitField.Flags.ManageGuild)) return;
         this.#getUsedInvite(member)
     }
     async #getUsedInvite(member) {

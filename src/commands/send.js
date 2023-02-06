@@ -27,8 +27,8 @@ class SendCommand extends Command {
     }
     async #send(interaction) {
         const { options, channel, client } = interaction
-        const content = options.getString('message');
-        const files = [options.getAttachment('files')];
+        const content = options.getString('message')
+        const file = options.getAttachment('file')
         const user = options.getUser('user')
         if (user) {
             if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageWebhooks)) return interaction.reply({ content: `Can't manage webhooks`, ephemeral: true })
@@ -39,7 +39,7 @@ class SendCommand extends Command {
         await interaction.deferReply({ ephemeral: true });
         await channel.sendTyping();
         await setTimeout(3000);
-        await channel.send({ content, files })
+        await channel.send({ content, files: [file] })
         return interaction.editReply({ content: `Command success` });
     }
     async #actionsWithMessage(interaction) {
