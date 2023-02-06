@@ -28,7 +28,7 @@ class SendCommand extends Command {
     async #send(interaction) {
         const { options, channel, client } = interaction
         const content = options.getString('message');
-        const files = options.getAttachment('files');
+        const files = [options.getAttachment('files')];
         const user = options.getUser('user')
         if (user) {
             if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageWebhooks)) return interaction.reply({ content: `Can't manage webhooks`, ephemeral: true })
