@@ -12,7 +12,7 @@ class OwnerPanelCommand extends Command {
     }
     async execute(interaction) {
         const { customId, commandName, member } = interaction
-        if (member.id !== this.ownerID) return interaction.reply({ content: `[PH] You aren't @Devil_Zeldris for use ${commandName} command` })
+        if (member.id !== this.ownerID) return interaction.reply({ content: `You aren't @Devil_Zeldris for use ${commandName} command` })
         switch (commandName || customId) {
             case 'panel':
                 return this.#createPanel(interaction);

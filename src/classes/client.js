@@ -12,15 +12,15 @@ class DevilZeldrisClient extends Client {
     async init() {
         await this.mongoDb.connect()
             .then(() => {
-                console.log(`[DATABASE]`, `[PH] Connected to MongoDB`)
+                console.log(`[DATABASE]`, `Connected to MongoDB`)
                 return this.database = this.mongoDb.db('DevilZeldrisDB')
             })
-            .catch(error => console.log(`[DATABASE]`, `[PH] Failed to connect to MongoDB`, error));
+            .catch(error => console.log(`[DATABASE]`, `Failed to connect to MongoDB`, error));
         await this.getEvents()
             .then(() => console.log(`[HANDLER]`, `Events are loaded`))
             .catch(error => console.log(`[HANDLER]`, error));
         await this.login(this.options.token)
-            .then(() => console.log(`[LOGIN]`, `[PH] Logged as ${this.user.username}`))
+            .then(() => console.log(`[LOGIN]`, `Logged as ${this.user.username}`))
             .catch(error => console.log(`[LOGIN]`, error));
     }
     async getEvents() {
