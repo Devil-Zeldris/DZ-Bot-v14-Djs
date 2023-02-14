@@ -28,7 +28,7 @@ class SendCommand extends Command {
     async #send(interaction) {
         const { options, channel, client } = interaction
         const content = options.getString('message')
-        const file = options.getAttachment('file') ? [options.getAttachment('file')] : []
+        const files = options.getAttachment('file') ? [options.getAttachment('file')] : []
 
         const user = options.getUser('user')
         if (user) {
@@ -40,7 +40,7 @@ class SendCommand extends Command {
         await interaction.deferReply({ ephemeral: true });
         await channel.sendTyping();
         await setTimeout(3000);
-        await channel.send({ content, files: file })
+        await channel.send({ content, files })
         return interaction.editReply({ content: `Command success` });
     }
     async #actionsWithMessage(interaction) {

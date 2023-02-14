@@ -19,10 +19,7 @@ class Handler {
     }
     get events() {
         return this._events = this.#walkSync(join(__dirname, `../events`))
-            .map(file => {
-                const event = new (require(file))
-                return event
-            })
+            .map(file => new (require(file)))
     }
     get commands() {
         this.#walkSync(join(__dirname, '../commands'))
@@ -45,4 +42,6 @@ class Handler {
     }
 }
 
-module.exports = Handler;
+module.exports = {
+    Handler
+};

@@ -1,9 +1,7 @@
-const { ownerID } = require('../config.json')
-
 class Command {
     constructor(cmd) {
         this.cmd = [].concat(cmd);
-        this.ownerID = ownerID;
+        this.ownerID = process.env.OWNER_ID;
     }
     execute(interaction) { }
 }

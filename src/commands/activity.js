@@ -7,8 +7,8 @@ class ActivityCommand extends Command {
     async execute(interaction) {
         const { options, client, member } = interaction;
         if (member.id !== this.ownerID) return interaction.reply({ content: `No permission for use this command` })
-        client.user.setActivity({ name: options.getString('title'), url: options.getString('url'), type: options.getString('type') })
-        return interaction.reply({ content: `Activity has been updated` });
+        client.user.setActivity({ name: options.getString('title'), url: options.getString('url'), type: Number(options.getString('type')) })
+        return interaction.reply({ content: `Activity has been updated`, ephemeral: true });
     }
 }
 

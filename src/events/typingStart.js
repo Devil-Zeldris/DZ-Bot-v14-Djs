@@ -1,4 +1,4 @@
-const handler = new (require("../classes/handler"));
+const handler = new (require("../classes/handler").Handler);
 const Event = require("../classes/event");
 class TypingStartEvent extends Event {
     constructor() {

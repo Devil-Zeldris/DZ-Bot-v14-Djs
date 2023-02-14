@@ -1,6 +1,6 @@
 const Event = require("../classes/event");
-const { Collection, EmbedBuilder } = require('discord.js')
-const { commandments, guildId, inviteLogId, rolesForGive } = require('../config.json')
+const { Collection } = require('discord.js')
+const { commandments, rolesForGive } = require('../config.json')
 class GuildMemberUpdateEvent extends Event {
     constructor() {
         super('guildMemberUpdate', false)
@@ -27,7 +27,7 @@ class GuildMemberUpdateEvent extends Event {
             id,
             guildId: guild.id
         }, { projection: { id: 1, guildId: 1 } })
-        if (!user && member.guild.id === guildId) await users.insertOne({
+        if (!user && member.guild.id === process.env.GUILD_ID) await users.insertOne({
             id,
             guildId: guild.id,
             coins: {
