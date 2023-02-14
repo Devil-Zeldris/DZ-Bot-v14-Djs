@@ -1,5 +1,5 @@
 const Event = require("../classes/event");
-const handler = new (require("../classes/handler"));
+const handler = new (require("../classes/handler").Handler);
 
 class MessageCreateEvent extends Event {
     constructor() {

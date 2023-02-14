@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4abd94ab-2217-4977-8a44-108572e6cbfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/command.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/command.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/handler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ownerpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ownerpanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/send.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/send.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/direct_message/guildThreadChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/direct_message/guildThreadChat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/guildMemberUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/guildMemberUpdate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/interactionCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/interactionCreate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/messageCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/messageCreate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/ready.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/ready.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/typingStart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/typingStart.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="qjgne1bh" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="2LizfH88NFak31WnyeN5bv1le2R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/Dolzhansky/Desktop/DZ-Bot-v14-Djs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/Dolzhansky/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8617.44/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4abd94ab-2217-4977-8a44-108572e6cbfe" name="Changes" comment="" />
+      <created>1676368795036</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676368795036</updated>
+      <workItem from="1676368797256" duration="103000" />
+      <workItem from="1676368916103" duration="2512000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
