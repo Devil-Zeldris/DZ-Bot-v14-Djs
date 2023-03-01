@@ -7,7 +7,7 @@ class ReadyEvent extends Event {
     async execute(client) {
         const { user, guilds } = client
         console.log(`[EVENT]`, `${this.name} as ${user.tag}`)
-        const guild = await guilds.fetch(client.getGuildId())
+        const guild = await guilds.fetch(client.guildId)
         await guild.invites.fetch()
         await client.application.commands.set([{
             name: 'panel',

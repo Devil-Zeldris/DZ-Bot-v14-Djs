@@ -6,7 +6,7 @@ class GuildMemberAddEvent extends Event {
     }
     async execute(member) {
         if (!member.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageGuild)) return;
-        this.#getUsedInvite(member)
+       return this.#getUsedInvite(member)
     }
     async #getUsedInvite(member) {
         const { guild, client } = member;

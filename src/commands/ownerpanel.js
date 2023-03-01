@@ -13,18 +13,14 @@ class OwnerPanelCommand extends Command {
     async execute(interaction) {
         const { customId, commandName, member } = interaction
         if (member.id !== this.ownerID) return interaction.reply({ content: `You aren't @Devil_Zeldris for use ${commandName} command` })
-        switch (commandName || customId) {
-            case 'panel':
-                return this.#createPanel(interaction);
-            case 'updateGuildCommands':
-                return this.#updateGuildCommands(interaction);
-            case 'updateGlobalCommands':
-                return this.#updateGlobalCommands(interaction);
-            case 'resetCommands':
-                return this.#resetCommands(interaction);
-            case 'createGuildCommands':
-                return this.#createGuildCommands(interaction);
+        const commands = {
+            'updateGuildCommands': this.#updateGuildCommands,
+            'updateGlobalCommands': this.#updateGlobalCommands,
+            'resetCommands': this.#resetCommands,
+            'createGuildCommands': this.#createGuildCommands,
+            'panel': this.#createPanel
         }
+        await commands[commandName](interaction)
     }
     async #createPanel(interaction) {
         const { embeds, components } = await interaction.client.database

@@ -1,13 +1,14 @@
 const { lstatSync, readdirSync } = require('node:fs');
-const { join } = require('path');
+const { join } = require('node:path');
 const { Collection } = require('discord.js')
-
+const { DRHandler } = require('../DevilRealmModule/classes/handler')
 class Handler {
     constructor(client) {
         this.client = client;
         this._commands = new Collection()
         this._events = new Collection()
         this._direct = new Collection()
+        this._DREvents = new DRHandler().events
     }
     #walkSync(dir, files = []) {
         if (!lstatSync(dir).isDirectory()) {
@@ -19,7 +20,7 @@ class Handler {
     }
     get events() {
         return this._events = this.#walkSync(join(__dirname, `../events`))
-            .map(file => new (require(file)))
+            .map(file => new (require(file))).concat(this._DREvents)
     }
     get commands() {
         this.#walkSync(join(__dirname, '../commands'))
@@ -42,6 +43,4 @@ class Handler {
     }
 }
 
-module.exports = {
-    Handler
-};
+module.exports = { Handler };

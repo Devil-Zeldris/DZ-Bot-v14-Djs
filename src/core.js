@@ -1,5 +1,5 @@
 require('dotenv').config();
-const DevilZeldrisClient = require('./classes/client');
+const { DevilZeldrisClient }= require('./classes/client');
 const { intents, partials } = require('./config.json')
 
 const config = {

@@ -37,13 +37,13 @@ class DevilZeldrisClient extends Client {
             }
         })
     }
-    getBotOwnerId() {
+    get botOwnerId() {
         return process.env.OWNER_ID;
     }
 
-    getGuildId() {
+    get guildId() {
         return process.env.GUILD_ID;
     }
 }
 
-module.exports = DevilZeldrisClient;
+module.exports = {DevilZeldrisClient};
