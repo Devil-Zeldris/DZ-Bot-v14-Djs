@@ -7,7 +7,8 @@ class GuildMemberUpdateEvent extends Event {
         this.commandments = new Collection(commandments.map(c => [c.id, { name: c.name, subrole: c.subrole }]))
     }
     async execute(oldMember, newMember) {
-        if (!newMember.pending) {
+        console.log(newMember.pending)
+        if (!newMember.pending && oldMember.pending) {
             await this.#giveTraceFromCommandment(newMember)
             await this.#addMemberToDb(newMember)
         }
@@ -19,6 +20,7 @@ class GuildMemberUpdateEvent extends Event {
         const inviter = await guild.members.fetch(invite.inviterId);
         const role = inviter.roles.cache.find(role => this.commandments.get(role.id));
         if (role) return roles.add([this.commandments.get(role.id).subrole, ...rolesForGive])
+        return roles.add(rolesForGive)
     }
     async #addMemberToDb(member) {
         const { client, id, guild } = member;
