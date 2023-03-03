@@ -7,7 +7,6 @@ class GuildMemberUpdateEvent extends Event {
         this.commandments = new Collection(commandments.map(c => [c.id, { name: c.name, subrole: c.subrole }]))
     }
     async execute(oldMember, newMember) {
-        console.log(newMember.pending)
         if (!newMember.pending && oldMember.pending) {
             await this.#giveTraceFromCommandment(newMember)
             await this.#addMemberToDb(newMember)
