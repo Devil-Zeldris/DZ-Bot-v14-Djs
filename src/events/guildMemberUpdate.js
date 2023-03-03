@@ -18,7 +18,7 @@ class GuildMemberUpdateEvent extends Event {
         if (!invite) return;
         const inviter = await guild.members.fetch(invite.inviterId);
         const role = inviter.roles.cache.find(role => this.commandments.get(role.id));
-        if (role) return roles.add([rolesForGive, this.commandments.get(role.id).subrole])
+        if (role) return roles.add([this.commandments.get(role.id).subrole, ...rolesForGive])
     }
     async #addMemberToDb(member) {
         const { client, id, guild } = member;
