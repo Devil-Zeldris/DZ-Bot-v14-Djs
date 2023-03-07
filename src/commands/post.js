@@ -16,7 +16,7 @@ class MessageEmbedsCommand extends Command {
         await this.#put({ interaction, collection, hook })
         return interaction.editReply({ content: `Embed has been put into ${interaction.channel.name} chat` })
     }
-    async #put({ interaction, collection }) {
+    async #put({ interaction, collection, hook }) {
         const embed = await collection.findOne({ name: `${interaction.options.getString('name')}` }, { projection: { _id: 0, roles: 0, name: 0 } })
         if (!embed) return interaction.reply({ content: `No embed found`, ephemeral: true })
         const { channel, client } = interaction;
