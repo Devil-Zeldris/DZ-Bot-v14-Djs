@@ -90,7 +90,7 @@ class SendCommand extends Command {
             .setTitle('Replying to message')
             .addComponents(reply);
         await interaction.showModal(modal)
-        const modalSubmitInteraction = await interaction.awaitModalSubmit({ filter: (interaction) => interaction.customId === 'replyToMessage', time: 60000 });
+        const modalSubmitInteraction = await interaction.awaitModalSubmit({ filter: (interaction) => interaction.customId === 'replyToMessage', time: 600000 }).catch();
         await modalSubmitInteraction.deferReply({ ephemeral: true })
         await modalSubmitInteraction.channel.sendTyping();
         await setTimeout(3000);
