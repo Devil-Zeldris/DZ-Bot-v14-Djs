@@ -28,7 +28,13 @@ class MessageEmbedsCommand extends Command {
             reason: `Create a new Thread at ${message.channel.name}`
         })})
             .catch(error => console.error)
-        return hook.send({ username, avatarURL, content, embeds, components })
+        return hook.send({ username, avatarURL, content, embeds, components }).then(message => {
+        if (thread) message.startThread({
+            name: message.embeds[0].title,
+            autoArchiveDuration: 'MAX',
+            reason: `Create a new Thread at ${message.channel.name}`
+        })})
+            .catch(error => console.error)
     }
     async #update({ interaction, collection, hook }) {
         const { options, channel } = interaction;
