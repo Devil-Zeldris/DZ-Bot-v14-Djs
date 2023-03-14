@@ -20,8 +20,14 @@ class MessageEmbedsCommand extends Command {
         const embed = await collection.findOne({ name: `${interaction.options.getString('name')}` }, { projection: { _id: 0, roles: 0, name: 0 } })
         if (!embed) return interaction.reply({ content: `No embed found`, ephemeral: true })
         const { channel, client } = interaction;
-        const { username, avatarURL, content, embeds, components } = embed
-        if (!username) return channel.send({ content, embeds, components })
+        const { username, avatarURL, content, embeds, components, thread } = embed
+        if (!username) return channel.send({ content, embeds, components }).then(message => {
+        if (thread) message.startThread({
+            name: message.embeds[0].title,
+            autoArchiveDuration: 'MAX',
+            reason: `Create a new Thread at ${message.channel.name}`
+        })})
+            .catch(error => console.error)
         return hook.send({ username, avatarURL, content, embeds, components })
     }
     async #update({ interaction, collection, hook }) {
