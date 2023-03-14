@@ -1,4 +1,5 @@
 const Command = require("../classes/command");
+const {ThreadAutoArchiveDuration} = require('discord.js')
 class MessageEmbedsCommand extends Command {
     constructor() {
         super('embed')
@@ -24,14 +25,14 @@ class MessageEmbedsCommand extends Command {
         if (!username) return channel.send({ content, embeds, components }).then(message => {
         if (thread) message.startThread({
             name: message.embeds[0].title,
-            autoArchiveDuration: 'MAX',
+            autoArchiveDuration: ThreadAutoArchiveDuration.OneWeek,
             reason: `Create a new Thread at ${message.channel.name}`
         })})
             .catch(error => console.error)
         return hook.send({ username, avatarURL, content, embeds, components }).then(message => {
         if (thread) message.startThread({
             name: message.embeds[0].title,
-            autoArchiveDuration: 'MAX',
+            autoArchiveDuration: ThreadAutoArchiveDuration.OneWeek,
             reason: `Create a new Thread at ${message.channel.name}`
         })})
             .catch(error => console.error)
