@@ -4,19 +4,23 @@ class GuildDirectMessagesChat extends DirectMessages {
         super([11, 12])
     }
     async typing(typing) {
-        if (typing.user.bot || (typing.channel.id !== this.directMessagesChatId)) return;
-        const user = await typing.client.users.fetch(typing.channel.name)
-        const dmChannel = await user.createDM()
-        return dmChannel.sendTyping().catch(() => undefined)
+        const { user, client } = typing;
+        if (user.bot) return;
+        let userDM = await client.users.fetch(typing.channel.name)
+        if (!userDM.dmChannel) await userDM.createDM();
+        return userDM.sendTyping().catch()
     }
+    //(channel.id !== this.directMessagesChatId)
     async execute(message) {
-        if (message.author.bot || (message.channel.id !== this.directMessagesChatId)) return;
-        const user = await message.client.users.fetch(message.channel.name)
-        return user.send({
+        let { author, channel } = message
+        let user = await message.client.users.fetch(channel.name)
+        if (author.bot) return;
+        if (!user.dmChannel) await user.createDM();
+        return user?.send({
             content: message.content,
             files: [...message.attachments.values()],
             stickers: message.stickers
-        }).catch(() => undefined)
+        }).catch()
     }
 }
 

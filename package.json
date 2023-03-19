@@ -9,8 +9,8 @@
   "author": "Devil_Zeldris#8592",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3",
-    "mongodb": "^4.13.0"
+    "discord.js": "*",
+    "dotenv": "*",
+    "mongodb": "*"
   }
 }

@@ -6,12 +6,12 @@ class DirectMessagesChat extends Direct {
         super(1);
     }
     async typing(typing) {
-        const { client, user, member } = typing;
+        const { client, user } = typing;
         const DMChannel = await client.channels.fetch(this.directMessagesChatId)
         const activeThread = await DMChannel.threads.fetchActive()
         const archivedThread = await DMChannel.threads.fetchArchived()
         const DMThread = activeThread.threads.find(thread => thread.name === user.id) || archivedThread.threads.find(thread => thread.name === user.id);
-        return DMThread?.sendTyping()
+        return DMThread?.sendTyping().catch()
     }
     async execute(message) {
         const { author, client, attachments, stickers } = message;

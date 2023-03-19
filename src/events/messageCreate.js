@@ -1,10 +1,10 @@
 const Event = require("../classes/event");
-const handler = new (require("../classes/handler").Handler);
+const { Handler } = require("../classes/handler");
 
 class MessageCreateEvent extends Event {
     constructor() {
         super('messageCreate', false);
-        this.direct = handler.direct
+        this.direct = new Handler().direct
     }
     async execute(message) {
         const { channel } = message;
