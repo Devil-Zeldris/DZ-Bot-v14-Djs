@@ -1,0 +1,89 @@
+{
+    "intents": [
+        "Guilds",
+        "DirectMessages",
+        "GuildMessages",
+        "GuildMembers",
+        "GuildInvites",
+        "GuildVoiceStates",
+        "GuildIntegrations",
+        "MessageContent",
+        "DirectMessageTyping",
+        "GuildMessageTyping"
+    ],
+    "partials": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        6
+    ],
+    "commandments": [
+        {
+            "name": "Commandment: Piety",
+            "id": "875504050509054012",
+            "subrole": "875948392566620181",
+            "curse": "1070348603551383602"
+        },
+        {
+            "name": "Commandment: Patience",
+            "id": "875503535725359124",
+            "subrole": "875948917441835079",
+            "curse": "1070354048043208797"
+        },
+        {
+            "name": "Commandment: Faith",
+            "id": "875501482965864550",
+            "subrole": "875949387614928947",
+            "curse": "1070354392273924106"
+        },
+        {
+            "name": "Commandment: Repose",
+            "id": "875504595982508032",
+            "subrole": "875948564256288829",
+            "curse": "1070354643927977984"
+        },
+        {
+            "name": "Commandment: Purity",
+            "id": "875504658578284554",
+            "subrole": "875948696813076500",
+            "curse": "1070355303561969714"
+        },
+        {
+            "name": "Commandment: Love",
+            "id": "875501741636997130",
+            "subrole": "875949009234198558",
+            "curse": "1070355490636304485"
+        },
+        {
+            "name": "Commandment: Pacifism",
+            "id": "875502432212377651",
+            "subrole": "875949073679667260",
+            "curse": "1070355707536351282"
+        },
+        {
+            "name": "Commandment: Reticence",
+            "id": "875504774206861312",
+            "subrole": "875948767235440680",
+            "curse": "1070356051779666051"
+        },
+        {
+            "name": "Commandment: Truth",
+            "id": "875504963789393971",
+            "subrole": "875949217812725812",
+            "curse": "1070356336610652211"
+        },
+        {
+            "name": "Commandment: Selflessness",
+            "id": "875504880851238952",
+            "subrole": "875949289078140958",
+            "curse": "1070356494891106384"
+        }
+    ],
+    "rolesForGive": [
+        "892082771672068106",
+        "873895647395344384"
+    ],
+    "inviteLogId": "1071407252948385953"
+}
