@@ -135,4 +135,4 @@ node_modules
 #files
 src/DevilRealmModule
 .idea
-src/config.json
+src/config

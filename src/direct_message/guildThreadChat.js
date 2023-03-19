@@ -8,7 +8,7 @@ class GuildDirectMessagesChat extends DirectMessages {
         if (user.bot) return;
         let userDM = await client.users.fetch(typing.channel.name)
         if (!userDM.dmChannel) await userDM.createDM();
-        return userDM.sendTyping().catch()
+        return userDM.dmChannel.sendTyping().catch()
     }
     //(channel.id !== this.directMessagesChatId)
     async execute(message) {

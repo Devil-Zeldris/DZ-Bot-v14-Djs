@@ -7,9 +7,7 @@ class TypingStartEvent extends Event {
     }
     async execute(typing) {
         const { channel } = typing;
-        console.log(channel.type)
         const typingChat = this.direct.get(channel.type)
-        console.log(typingChat);
         if (typingChat) return typingChat.typing(typing)
     }
 }
